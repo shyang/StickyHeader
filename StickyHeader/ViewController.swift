@@ -12,9 +12,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(onRight))
     }
 
-
+    @objc func onRight() {
+        self.navigationController?.pushViewController(ParentViewController(), animated: true)
+    }
 }
 
