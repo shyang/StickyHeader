@@ -12,7 +12,6 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
     var scrollView = UIScrollView()
     let headerView = HeaderView()
     let dataSources: [UIViewController] = [ChildVC(), ChildVC(), ChildVC()]
-    var nestedView: UIScrollView?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -24,6 +23,9 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
+    let w = UIScreen.main.bounds.size.width
+    let h = UIScreen.main.bounds.size.height
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,9 +33,6 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
         title = "主页"
         automaticallyAdjustsScrollViewInsets = false
 
-        let sz = UIScreen.main.bounds.size
-        let w = sz.width
-        let h = sz.height
 
         scrollView.then { v in
             view.addSubview(v)
@@ -46,6 +45,10 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
             v.showsVerticalScrollIndicator = false
             v.isDirectionalLockEnabled = true
             v.bounces = false
+            if #available(iOS 11.0, *) {
+                v.contentInsetAdjustmentBehavior = .never
+            }
+            v.delegate = self
         }
 
         headerView.then { v in
@@ -71,8 +74,11 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
             }
 
             if let scroll = child.view as? UIScrollView {
-                scroll.delegate = self
+                if #available(iOS 11.0, *) {
+                    scroll.contentInsetAdjustmentBehavior = .never
+                }
                 scroll.contentInset = UIEdgeInsets(top: headerView.HeaderHeight, left: 0, bottom: 0, right: 0)
+                scroll.delegate = self
                 scroll.tag = idx
             }
         }
@@ -81,17 +87,38 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
     }
 
     func tabBarDidSelect(_ index: Int) {
-        let w = self.view.bounds.size.width
         scrollView.setContentOffset(CGPoint(x: w * CGFloat(index), y: scrollView.contentOffset.y), animated: true)
-
-        nestedView = dataSources[index].view as? UIScrollView
     }
 
     let StatusBarHeight = UIApplication.shared.statusBarFrame.size.height
 
     func scrollViewDidScroll(_ sender: UIScrollView) {
-        let anchor = -headerView.TabBarHeight - StatusBarHeight
+        let anchor = -headerView.TabBarHeight - StatusBarHeight // 上限
+        if sender == scrollView { // 水平滚动时复制一定范围内的 offset，否则 UI 抖动，TODO 还不完美
+            if sender.contentOffset.x.truncatingRemainder(dividingBy: w) == 0 { // 边界
+                return
+            }
+            let x = Int(sender.contentOffset.x / w * 2)
 
+            let from = [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5] // ...
+            let to   = [1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6] // ...
+
+            guard let fromView = dataSources[from[x]].view as? UIScrollView else {
+                return
+            }
+            guard let toView = dataSources[to[x]].view as? UIScrollView else {
+                return
+            }
+
+            let top = min(fromView.contentOffset.y, anchor)
+            if toView.contentOffset.y < top {
+                print("from", fromView.tag, "to", toView.tag, top)
+                toView.contentOffset.y = top
+            }
+            return
+        }
+
+        // 垂直滚动
         var y = sender.contentOffset.y
         if (y >= anchor) {
             y = anchor
