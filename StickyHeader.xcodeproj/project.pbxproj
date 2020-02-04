@@ -7,21 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		527BB2FD71CEA426E5770BBA /* libPods-StickyHeader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FFEF2F00FFB66E7A3B0464E /* libPods-StickyHeader.a */; };
 		AD44DEDB23E8B0F6003F7BDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEDA23E8B0F6003F7BDA /* AppDelegate.swift */; };
 		AD44DEDF23E8B0F6003F7BDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEDE23E8B0F6003F7BDA /* ViewController.swift */; };
 		AD44DEE423E8B0F9003F7BDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD44DEE323E8B0F9003F7BDA /* Assets.xcassets */; };
 		AD44DEE723E8B0F9003F7BDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD44DEE523E8B0F9003F7BDA /* LaunchScreen.storyboard */; };
-		AD44DEEF23E8B24E003F7BDA /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEEE23E8B24E003F7BDA /* ParentViewController.swift */; };
+		AD44DEEF23E8B24E003F7BDA /* ParentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEEE23E8B24E003F7BDA /* ParentVC.swift */; };
+		AD44DEF123E8B30B003F7BDA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF023E8B30B003F7BDA /* HeaderView.swift */; };
+		AD44DEF323E8B327003F7BDA /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF223E8B327003F7BDA /* TabBar.swift */; };
+		AD44DEF723E8B4DB003F7BDA /* ChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF623E8B4DB003F7BDA /* ChildVC.swift */; };
+		AD44DEF923E8B5E5003F7BDA /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF823E8B5E5003F7BDA /* Import.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B904CA74D80D7E22F029A90 /* Pods-StickyHeader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickyHeader.debug.xcconfig"; path = "Target Support Files/Pods-StickyHeader/Pods-StickyHeader.debug.xcconfig"; sourceTree = "<group>"; };
+		8FFEF2F00FFB66E7A3B0464E /* libPods-StickyHeader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StickyHeader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD44DED723E8B0F6003F7BDA /* StickyHeader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickyHeader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD44DEDA23E8B0F6003F7BDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD44DEDE23E8B0F6003F7BDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD44DEE323E8B0F9003F7BDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD44DEE623E8B0F9003F7BDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD44DEE823E8B0F9003F7BDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD44DEEE23E8B24E003F7BDA /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
+		AD44DEEE23E8B24E003F7BDA /* ParentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentVC.swift; sourceTree = "<group>"; };
+		AD44DEF023E8B30B003F7BDA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		AD44DEF223E8B327003F7BDA /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		AD44DEF623E8B4DB003F7BDA /* ChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildVC.swift; sourceTree = "<group>"; };
+		AD44DEF823E8B5E5003F7BDA /* Import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Import.swift; sourceTree = "<group>"; };
+		FB189682DD042A03343D57B6 /* Pods-StickyHeader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickyHeader.release.xcconfig"; path = "Target Support Files/Pods-StickyHeader/Pods-StickyHeader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				527BB2FD71CEA426E5770BBA /* libPods-StickyHeader.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85409961FC811C6EC20BEAF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FFEF2F00FFB66E7A3B0464E /* libPods-StickyHeader.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AD44DECE23E8B0F6003F7BDA = {
 			isa = PBXGroup;
 			children = (
 				AD44DED923E8B0F6003F7BDA /* StickyHeader */,
 				AD44DED823E8B0F6003F7BDA /* Products */,
+				E8015589E92AA67D5D412DB8 /* Pods */,
+				85409961FC811C6EC20BEAF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,9 +82,22 @@
 				AD44DEE323E8B0F9003F7BDA /* Assets.xcassets */,
 				AD44DEE523E8B0F9003F7BDA /* LaunchScreen.storyboard */,
 				AD44DEE823E8B0F9003F7BDA /* Info.plist */,
-				AD44DEEE23E8B24E003F7BDA /* ParentViewController.swift */,
+				AD44DEF823E8B5E5003F7BDA /* Import.swift */,
+				AD44DEEE23E8B24E003F7BDA /* ParentVC.swift */,
+				AD44DEF623E8B4DB003F7BDA /* ChildVC.swift */,
+				AD44DEF023E8B30B003F7BDA /* HeaderView.swift */,
+				AD44DEF223E8B327003F7BDA /* TabBar.swift */,
 			);
 			path = StickyHeader;
+			sourceTree = "<group>";
+		};
+		E8015589E92AA67D5D412DB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B904CA74D80D7E22F029A90 /* Pods-StickyHeader.debug.xcconfig */,
+				FB189682DD042A03343D57B6 /* Pods-StickyHeader.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,6 +107,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD44DEEB23E8B0F9003F7BDA /* Build configuration list for PBXNativeTarget "StickyHeader" */;
 			buildPhases = (
+				6D11F7A0028E7711566BC556 /* [CP] Check Pods Manifest.lock */,
 				AD44DED323E8B0F6003F7BDA /* Sources */,
 				AD44DED423E8B0F6003F7BDA /* Frameworks */,
 				AD44DED523E8B0F6003F7BDA /* Resources */,
@@ -129,14 +166,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6D11F7A0028E7711566BC556 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StickyHeader-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AD44DED323E8B0F6003F7BDA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD44DEF923E8B5E5003F7BDA /* Import.swift in Sources */,
 				AD44DEDF23E8B0F6003F7BDA /* ViewController.swift in Sources */,
 				AD44DEDB23E8B0F6003F7BDA /* AppDelegate.swift in Sources */,
-				AD44DEEF23E8B24E003F7BDA /* ParentViewController.swift in Sources */,
+				AD44DEEF23E8B24E003F7BDA /* ParentVC.swift in Sources */,
+				AD44DEF123E8B30B003F7BDA /* HeaderView.swift in Sources */,
+				AD44DEF323E8B327003F7BDA /* TabBar.swift in Sources */,
+				AD44DEF723E8B4DB003F7BDA /* ChildVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +336,11 @@
 		};
 		AD44DEEC23E8B0F9003F7BDA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B904CA74D80D7E22F029A90 /* Pods-StickyHeader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y28X3YR8R9;
 				INFOPLIST_FILE = StickyHeader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -287,9 +355,11 @@
 		};
 		AD44DEED23E8B0F9003F7BDA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB189682DD042A03343D57B6 /* Pods-StickyHeader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y28X3YR8R9;
 				INFOPLIST_FILE = StickyHeader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

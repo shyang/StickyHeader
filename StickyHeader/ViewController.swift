@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
 
     @objc func onRight() {
-        self.navigationController?.pushViewController(ParentViewController(), animated: true)
+        self.navigationController?.pushViewController(ParentVC(), animated: true)
     }
 }
 
