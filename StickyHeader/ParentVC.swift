@@ -49,6 +49,8 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
                 v.contentInsetAdjustmentBehavior = .never
             }
             v.delegate = self
+            // 处理 headerView 上的点击事件
+            v.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapped)))
         }
 
         headerView.then { v in
@@ -86,6 +88,12 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
         tabBarDidSelect(0)
     }
 
+    @objc func onTapped(gesture: UITapGestureRecognizer) {
+        if headerView.tabBar.frame.contains(gesture.location(in: headerView)) {
+            headerView.tabBar.onTapped(gesture: gesture)
+        }
+    }
+
     func tabBarDidSelect(_ index: Int) {
         scrollView.setContentOffset(CGPoint(x: w * CGFloat(index), y: scrollView.contentOffset.y), animated: true)
     }
@@ -108,14 +116,9 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
 
             var x = Int(sender.contentOffset.x / w)
 
-            // 快速滑动，已跳过边界
-            if true {
-                if x > currIndex + 1 {
-                    currIndex += 1
-                }
-                if x < currIndex - 1 {
-                    currIndex -= 1
-                }
+            // 连续滑动时动画来不及停止
+            if currIndex < x {
+                currIndex = x
             }
 
             if x == currIndex {

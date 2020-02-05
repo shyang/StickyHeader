@@ -41,18 +41,12 @@ class HeaderView: UIView {
         }
     }
 
-    @objc func onPan(_ gesture: UIPanGestureRecognizer) {
-        print(gesture.location(in: self))
-    }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        if tabBar.frame.contains(point) {
-            return super.hitTest(point, with: event)
-        }
+        // 穿透
         return nil
     }
 
