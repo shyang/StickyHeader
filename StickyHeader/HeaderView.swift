@@ -19,11 +19,12 @@ class HeaderView: UIView {
     init() {
         super.init(frame: .zero)
 
-        backgroundColor = .gray
-
         image.then { v in
-            addSubview(v)
+            v.image = UIImage(named: "headerBg")
+            v.contentMode = .scaleAspectFill
+            v.clipsToBounds = true
 
+            addSubview(v)
             v.snp.makeConstraints { make in
                 make.left.right.top.equalToSuperview()
                 make.height.equalTo(ImageHeight)
