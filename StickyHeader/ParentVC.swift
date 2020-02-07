@@ -109,7 +109,10 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
     let StatusBarHeight = UIApplication.shared.statusBarFrame.size.height
     func scrollViewDidScroll(_ sender: UIScrollView) {
         let anchor = -headerView.TabBarHeight - StatusBarHeight // 上限
-        if sender == scrollView { // 水平滚动时复制一定范围内的 offset，否则 UI 抖动，TODO 还不完美
+        if sender == scrollView {
+            headerView.tabBar.scrollViewDidScroll(sender)
+
+            // 水平滚动时复制一定范围内的 offset，否则 UI 抖动，TODO 还不完美
             // https://stackoverflow.com/questions/993280/how-to-detect-when-a-uiscrollview-has-finished-scrolling
             NSObject.cancelPreviousPerformRequests(withTarget: self)
             self.perform(#selector(scrollViewDidEndScrollingAnimation), with: nil, afterDelay: 0.3)

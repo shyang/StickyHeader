@@ -16,9 +16,14 @@ class TabBar: UIView {
 
     weak var delegate: TabBarDelegate?
 
+    let labels = [UILabel(), UILabel(), UILabel()]
+    let titles = ["A", "B", "C"]
+    let count = 3
+    let indicator = UIView() // 黄色漂浮下标
+
     @objc func onTapped(gesture: UIGestureRecognizer) {
         let x = gesture.location(in: self).x
-        let to = Int(x * 3 / self.bounds.size.width)
+        let to = Int(x * CGFloat(count) / self.bounds.size.width)
         print("selected", to)
         delegate?.tabBarDidSelect(to)
     }
@@ -28,29 +33,37 @@ class TabBar: UIView {
 
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapped)))
 
-        let r = UIView().then { v in
-            v.backgroundColor = .red
+        labels.enumerated().forEach { (idx, v) in
             addSubview(v)
-            v.snp.makeConstraints { make in
-                make.left.top.bottom.equalToSuperview()
-                make.width.equalToSuperview().dividedBy(3)
-            }
-        }
-        let g = UIView().then { v in
-            v.backgroundColor = .green
-            addSubview(v)
+            v.textColor = .white
+            v.backgroundColor = .lightGray
+            v.textAlignment = .center
+            v.font = UIFont.systemFont(ofSize: 15)
+            v.text = titles[idx]
+
             v.snp.makeConstraints { make in
                 make.top.bottom.equalToSuperview()
-                make.left.equalTo(r.snp.right)
-                make.width.equalToSuperview().dividedBy(3)
+                make.width.equalToSuperview().dividedBy(count)
+
+                if idx == 0 {
+                    make.left.equalToSuperview()
+                } else if idx == count - 1 {
+                    make.right.equalToSuperview()
+                } else {
+                    make.left.equalTo(labels[idx - 1].snp.right)
+                }
             }
         }
-        _ = UIView().then { v in
-            v.backgroundColor = .blue
+
+        indicator.then { v in
+            v.backgroundColor = .yellow
+
             addSubview(v)
             v.snp.makeConstraints { make in
-                make.right.top.bottom.equalToSuperview()
-                make.left.equalTo(g.snp.right)
+                make.height.equalTo(3)
+                make.width.equalTo(16)
+                make.centerX.equalTo(labels[0]) // initial
+                make.bottom.equalToSuperview().offset(-8)
             }
         }
     }
@@ -59,4 +72,9 @@ class TabBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func scrollViewDidScroll(_ sender: UIScrollView) {
+        let x = sender.contentOffset.x
+        let w = sender.contentSize.width
+        indicator.frame.origin.x = self.bounds.width * (CGFloat(0.5) / CGFloat(count) + x / w) - 16 / 2
+    }
 }
