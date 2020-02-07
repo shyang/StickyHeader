@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChildVC: UITableViewController {
+class TableVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

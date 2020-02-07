@@ -11,7 +11,7 @@ import UIKit
 class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestureRecognizerDelegate {
     var scrollView = UIScrollView()
     let headerView = HeaderView()
-    let dataSources: [UIViewController] = [ChildVC(), ChildVC(), ChildVC()]
+    let dataSources: [UIViewController] = [TableVC(), CollectionVC(), TableVC()]
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -76,7 +76,7 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
                 make.height.equalTo(h)
             }
 
-            if let scroll = child.view as? UIScrollView {
+            if let scroll = (child as? UICollectionViewController)?.collectionView ?? child.view as? UIScrollView {
                 if #available(iOS 11.0, *) {
                     scroll.contentInsetAdjustmentBehavior = .never
                 }

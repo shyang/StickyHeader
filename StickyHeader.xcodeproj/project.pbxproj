@@ -15,8 +15,9 @@
 		AD44DEEF23E8B24E003F7BDA /* ParentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEEE23E8B24E003F7BDA /* ParentVC.swift */; };
 		AD44DEF123E8B30B003F7BDA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF023E8B30B003F7BDA /* HeaderView.swift */; };
 		AD44DEF323E8B327003F7BDA /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF223E8B327003F7BDA /* TabBar.swift */; };
-		AD44DEF723E8B4DB003F7BDA /* ChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF623E8B4DB003F7BDA /* ChildVC.swift */; };
+		AD44DEF723E8B4DB003F7BDA /* TableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF623E8B4DB003F7BDA /* TableVC.swift */; };
 		AD44DEF923E8B5E5003F7BDA /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF823E8B5E5003F7BDA /* Import.swift */; };
+		AD7F2CCA23ED52F200AA444B /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7F2CC923ED52F200AA444B /* CollectionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +32,9 @@
 		AD44DEEE23E8B24E003F7BDA /* ParentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentVC.swift; sourceTree = "<group>"; };
 		AD44DEF023E8B30B003F7BDA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		AD44DEF223E8B327003F7BDA /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		AD44DEF623E8B4DB003F7BDA /* ChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildVC.swift; sourceTree = "<group>"; };
+		AD44DEF623E8B4DB003F7BDA /* TableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableVC.swift; sourceTree = "<group>"; };
 		AD44DEF823E8B5E5003F7BDA /* Import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Import.swift; sourceTree = "<group>"; };
+		AD7F2CC923ED52F200AA444B /* CollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 		FB189682DD042A03343D57B6 /* Pods-StickyHeader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickyHeader.release.xcconfig"; path = "Target Support Files/Pods-StickyHeader/Pods-StickyHeader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,9 +86,10 @@
 				AD44DEE823E8B0F9003F7BDA /* Info.plist */,
 				AD44DEF823E8B5E5003F7BDA /* Import.swift */,
 				AD44DEEE23E8B24E003F7BDA /* ParentVC.swift */,
-				AD44DEF623E8B4DB003F7BDA /* ChildVC.swift */,
 				AD44DEF023E8B30B003F7BDA /* HeaderView.swift */,
 				AD44DEF223E8B327003F7BDA /* TabBar.swift */,
+				AD44DEF623E8B4DB003F7BDA /* TableVC.swift */,
+				AD7F2CC923ED52F200AA444B /* CollectionVC.swift */,
 			);
 			path = StickyHeader;
 			sourceTree = "<group>";
@@ -198,11 +201,12 @@
 			files = (
 				AD44DEF923E8B5E5003F7BDA /* Import.swift in Sources */,
 				AD44DEDF23E8B0F6003F7BDA /* ViewController.swift in Sources */,
+				AD7F2CCA23ED52F200AA444B /* CollectionVC.swift in Sources */,
 				AD44DEDB23E8B0F6003F7BDA /* AppDelegate.swift in Sources */,
 				AD44DEEF23E8B24E003F7BDA /* ParentVC.swift in Sources */,
 				AD44DEF123E8B30B003F7BDA /* HeaderView.swift in Sources */,
 				AD44DEF323E8B327003F7BDA /* TabBar.swift in Sources */,
-				AD44DEF723E8B4DB003F7BDA /* ChildVC.swift in Sources */,
+				AD44DEF723E8B4DB003F7BDA /* TableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
