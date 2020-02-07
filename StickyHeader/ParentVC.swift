@@ -76,7 +76,7 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
                 make.height.equalTo(h)
             }
 
-            if let scroll = (child as? UICollectionViewController)?.collectionView ?? child.view as? UIScrollView {
+            if let scroll = getScrollView(child) {
                 if #available(iOS 11.0, *) {
                     scroll.contentInsetAdjustmentBehavior = .never
                 }
@@ -87,6 +87,10 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
         }
 
         tabBarDidSelect(0)
+    }
+
+    private func getScrollView(_ child: UIViewController) -> UIScrollView? {
+        return (child as? UICollectionViewController)?.collectionView ?? child.view as? UIScrollView
     }
 
     @objc func onTapped(gesture: UITapGestureRecognizer) {
@@ -144,10 +148,10 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
                 return
             }
 
-            guard let fromView = dataSources[currIndex].view as? UIScrollView else {
+            guard let fromView = getScrollView(dataSources[currIndex]) else {
                 return
             }
-            guard let toView = dataSources[x].view as? UIScrollView else {
+            guard let toView = getScrollView(dataSources[x]) else {
                 return
             }
 
