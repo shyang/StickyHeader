@@ -126,7 +126,7 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
         if sender == scrollView {
             headerView.tabBar.scrollViewDidScroll(sender)
 
-            // 水平滚动时复制一定范围内的 offset，否则 UI 抖动，TODO 还不完美
+            // 水平滚动时复制一定范围内的 offset，否则 UI 抖动
             // https://stackoverflow.com/questions/993280/how-to-detect-when-a-uiscrollview-has-finished-scrolling
             NSObject.cancelPreviousPerformRequests(withTarget: self)
             self.perform(#selector(scrollViewDidEndScrollingAnimation), with: nil, afterDelay: 0.3)
@@ -142,7 +142,7 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
                 x = currIndex + 1
             }
 
-//            print("H", sender.contentOffset.x, currIndex, "=>", x)
+            print("H", sender.contentOffset.x, currIndex, "=>", x)
 
             if x < 0 || x >= dataSources.count {
                 return
@@ -156,10 +156,14 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
             }
 
             let top = min(fromView.contentOffset.y, anchor)
-            if toView.contentOffset.y < top {
-//                print("from", fromView.tag, "to", toView.tag, top)
+            /*
+             无条件复制是 twitter、tiktok 等采用的行为：不保留原有 contentOffset，但绝无高度跳跃
+             有条件复制：可以保留原有 contentOffset，但会有高度跳跃
+             */
+            // if toView.contentOffset.y < top {
+                print("from", fromView.tag, "to", toView.tag, top)
                 toView.contentOffset.y = top
-            }
+            // }
             return
         }
 
@@ -169,7 +173,7 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
             y = anchor
         }
         let newY = -y - headerView.HeaderHeight
-//        print("V", sender.tag, y, newY)
+        print("V", sender.tag, y, newY)
         headerView.frame.origin.y = newY
 
         // 过拉放大, drag to zoom in headerView bg
