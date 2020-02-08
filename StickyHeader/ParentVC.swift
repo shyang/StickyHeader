@@ -8,15 +8,14 @@
 
 import UIKit
 
-class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestureRecognizerDelegate {
-    var scrollView = UIScrollView()
+class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
+    var scrollView = MyScrollView()
     let headerView = HeaderView()
     let dataSources: [UIViewController] = [TableVC(), CollectionVC(), TableVC()]
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -33,7 +32,6 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
         view.backgroundColor = .white
         title = "主页"
         automaticallyAdjustsScrollViewInsets = false
-
 
         scrollView.then { v in
             view.addSubview(v)
@@ -97,15 +95,6 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
         if headerView.tabBar.frame.contains(gesture.location(in: headerView)) {
             headerView.tabBar.onTapped(gesture: gesture)
         }
-    }
-
-    // https://stackoverflow.com/questions/24710258/no-swipe-back-when-hiding-navigation-bar-in-uinavigationcontroller/41248703#41248703
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return navigationController?.viewControllers.count ?? 0 > 1
-    }
-
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
     }
 
     func tabBarDidSelect(_ index: Int) {
