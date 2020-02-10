@@ -37,10 +37,6 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
         title = "主页"
         automaticallyAdjustsScrollViewInsets = false
 
-        if let nav = navigationController as? MyNavigationController {
-            nav.fullscreenPan.delegate = self
-        }
-
         scrollView.then { v in
             view.addSubview(v)
             v.snp.makeConstraints { make in
