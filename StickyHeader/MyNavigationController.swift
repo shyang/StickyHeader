@@ -10,12 +10,15 @@ import UIKit
 
 class MyNavigationController: UINavigationController, UIGestureRecognizerDelegate {
 
+    let fullscreenPan = UIPanGestureRecognizer()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 全屏右划返回 1of2
         if let edge = interactivePopGestureRecognizer {
-            let pan = UIPanGestureRecognizer(target: edge.delegate, action: NSSelectorFromString("handleNavigationTransition:"))
-            edge.view?.addGestureRecognizer(pan)
+            fullscreenPan.addTarget(edge.delegate!, action: NSSelectorFromString("handleNavigationTransition:"))
+            edge.view?.addGestureRecognizer(fullscreenPan)
         }
     }
 }

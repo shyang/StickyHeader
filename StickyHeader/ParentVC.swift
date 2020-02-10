@@ -8,10 +8,14 @@
 
 import UIKit
 
-class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
+class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestureRecognizerDelegate {
     var scrollView = MyScrollView()
     let headerView = HeaderView()
     let dataSources: [UIViewController] = [TableVC(), CollectionVC(), TableVC()]
+
+    deinit {
+        print("deinit", self)
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,6 +36,10 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
         view.backgroundColor = .white
         title = "主页"
         automaticallyAdjustsScrollViewInsets = false
+
+        if let nav = navigationController as? MyNavigationController {
+            nav.fullscreenPan.delegate = self
+        }
 
         scrollView.then { v in
             view.addSubview(v)
@@ -85,6 +93,23 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate {
         }
 
         tabBarDidSelect(0)
+    }
+
+    // headerView 区域禁用左划
+    @objc func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard let pan = gestureRecognizer as? UIPanGestureRecognizer else {
+            return true
+        }
+
+        // UIScrollViewPanGestureRecognizer: 只有 headerView 下方允许
+        if gestureRecognizer.view == scrollView {
+            return gestureRecognizer.location(in: gestureRecognizer.view).y > headerView.frame.maxY
+        }
+
+        // fullscreenPan: headerView 右划或下方第一页右划允许
+        return pan.translation(in: scrollView).x > 0 &&
+            (gestureRecognizer.location(in: gestureRecognizer.view).y <= headerView.frame.maxY ||
+            scrollView.contentOffset.x == 0)
     }
 
     private func getScrollView(_ child: UIViewController) -> UIScrollView? {
