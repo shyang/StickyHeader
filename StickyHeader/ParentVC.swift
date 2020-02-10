@@ -188,7 +188,9 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
         }
         let newY = -y - headerView.HeaderHeight
         print("V", sender.tag, y, newY)
-        headerView.frame.origin.y = newY
+        headerView.snp.updateConstraints { (make) in
+            make.top.equalTo(newY)
+        }
 
         // 过拉放大, drag to zoom in headerView bg
         if newY > 0 {
