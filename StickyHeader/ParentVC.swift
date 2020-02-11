@@ -115,6 +115,10 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
     @objc func onTapped(gesture: UITapGestureRecognizer) {
         if headerView.tabBar.frame.contains(gesture.location(in: headerView)) {
             headerView.tabBar.onTapped(gesture: gesture)
+
+            gesture.cancelsTouchesInView = true
+        } else {
+            gesture.cancelsTouchesInView = false // 让下方 UI 继续响应
         }
     }
 
