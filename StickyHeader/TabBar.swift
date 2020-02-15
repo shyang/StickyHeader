@@ -21,7 +21,7 @@ class TabBar: UIView {
     let count = 3
     let indicator = UIView() // 黄色漂浮下标
 
-    @objc func onTapped(gesture: UIGestureRecognizer) {
+    func onTapped(gesture: UIGestureRecognizer) {
         let x = gesture.location(in: self).x
         let to = Int(x * CGFloat(count) / self.bounds.size.width)
         print("selected", to)
@@ -30,8 +30,6 @@ class TabBar: UIView {
 
     init() {
         super.init(frame: .zero)
-
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapped)))
 
         labels.enumerated().forEach { (idx, v) in
             addSubview(v)
