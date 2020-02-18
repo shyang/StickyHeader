@@ -12,12 +12,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(onRight))
+
+        navigationController?.setNavigationBarHidden(true, animated: false)
 
         view.backgroundColor = .white
         _ = UILabel().then { v in
-            v.text = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+            v.text = "Click me"
             v.numberOfLines = 0
+            v.textAlignment = .center
+            v.isUserInteractionEnabled = true
+            v.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapped)))
 
             view.addSubview(v)
             v.snp.makeConstraints { make in
@@ -26,7 +30,7 @@ class ViewController: UIViewController {
         }
     }
 
-    @objc func onRight() {
+    @objc func onTapped() {
         self.navigationController?.pushViewController(ParentVC(), animated: true)
     }
 }
