@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kTabBarHeight: CGFloat = 56
+
 protocol TabBarDelegate: AnyObject {
     func tabBarDidSelect(_ index: Int)
 }

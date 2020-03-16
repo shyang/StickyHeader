@@ -8,13 +8,15 @@
 
 import UIKit
 
-class HeaderView: UIView {
-    let ImageHeight: CGFloat = 380
-    let TabBarHeight: CGFloat = 56
-    lazy var HeaderHeight: CGFloat = { ImageHeight + TabBarHeight }()
+let kImageHeight: CGFloat = 380
 
+class HeaderView: UIView {
     let image = UIImageView()
     let tabBar = TabBar()
+
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: UIView.noIntrinsicMetric, height: kImageHeight + kTabBarHeight)
+    }
 
     init() {
         super.init(frame: .zero)
@@ -27,7 +29,7 @@ class HeaderView: UIView {
             addSubview(v)
             v.snp.makeConstraints { make in
                 make.left.right.top.equalToSuperview()
-                make.height.equalTo(ImageHeight)
+                make.height.equalTo(kImageHeight)
             }
         }
 
@@ -37,7 +39,7 @@ class HeaderView: UIView {
             v.snp.makeConstraints { make in
                 make.left.right.bottom.equalToSuperview()
                 make.top.equalTo(image.snp.bottom)
-                make.height.equalTo(TabBarHeight)
+                make.height.equalTo(kTabBarHeight)
             }
         }
     }

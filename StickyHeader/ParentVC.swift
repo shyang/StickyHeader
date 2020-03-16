@@ -50,7 +50,6 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
             view.addSubview(v)
             v.snp.makeConstraints { make in
                 make.top.left.right.equalToSuperview()
-                make.height.equalTo(headerView.HeaderHeight)
             }
             v.tabBar.delegate = self
         }
@@ -72,7 +71,7 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
                 if #available(iOS 11.0, *) {
                     scroll.contentInsetAdjustmentBehavior = .never
                 }
-                scroll.contentInset = UIEdgeInsets(top: headerView.HeaderHeight, left: 0, bottom: 0, right: 0)
+                scroll.contentInset = UIEdgeInsets(top: headerView.intrinsicContentSize.height, left: 0, bottom: 0, right: 0)
                 scroll.delegate = self
                 scroll.tag = idx
             }
@@ -124,9 +123,9 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
 //        print("curr", currIndex)
     }
 
-    let StatusBarHeight = UIApplication.shared.statusBarFrame.size.height
+    let kStatusBarHeight = UIApplication.shared.statusBarFrame.size.height
     func scrollViewDidScroll(_ sender: UIScrollView) {
-        let anchor = -headerView.TabBarHeight - StatusBarHeight // 上限
+        let anchor = -kTabBarHeight - kStatusBarHeight // 上限
         if sender == scrollView {
             headerView.tabBar.scrollViewDidScroll(sender)
 
@@ -176,7 +175,7 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
         if (y >= anchor) {
             y = anchor
         }
-        let newY = -y - headerView.HeaderHeight
+        let newY = -y - headerView.intrinsicContentSize.height
         print("V", sender.tag, y, newY)
         headerView.snp.updateConstraints { (make) in
             make.top.equalTo(newY)
@@ -186,12 +185,12 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
         if newY > 0 {
             headerView.image.snp.updateConstraints { make in
                 make.top.equalTo(-newY)
-                make.height.equalTo(headerView.ImageHeight + newY)
+                make.height.equalTo(kImageHeight + newY)
             }
         } else {
             headerView.image.snp.updateConstraints { make in
                 make.top.equalToSuperview()
-                make.height.equalTo(headerView.ImageHeight)
+                make.height.equalTo(kImageHeight)
             }
         }
     }
