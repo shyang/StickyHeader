@@ -55,7 +55,7 @@ class TabBar: UIView {
             }
         }
 
-        indicator.then { v in
+        _ = indicator.then { v in
             v.backgroundColor = .yellow
 
             addSubview(v)

@@ -21,7 +21,7 @@ class HeaderView: UIView {
     init() {
         super.init(frame: .zero)
 
-        image.then { v in
+        _ = image.then { v in
             v.image = UIImage(named: "headerBg")
             v.contentMode = .scaleAspectFill
             v.clipsToBounds = true
@@ -33,7 +33,7 @@ class HeaderView: UIView {
             }
         }
 
-        tabBar.then { v in
+        _ = tabBar.then { v in
             addSubview(v)
 
             v.snp.makeConstraints { make in

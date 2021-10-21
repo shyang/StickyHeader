@@ -27,7 +27,7 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
         title = "主页"
         automaticallyAdjustsScrollViewInsets = false
 
-        scrollView.then { v in
+        _ = scrollView.then { v in
             view.addSubview(v)
             v.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
@@ -46,7 +46,7 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
             v.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapped)))
         }
 
-        headerView.then { v in
+        _ = headerView.then { v in
             view.addSubview(v)
             v.snp.makeConstraints { make in
                 make.top.left.right.equalToSuperview()
@@ -72,6 +72,7 @@ class ParentVC: UIViewController, UIScrollViewDelegate, TabBarDelegate, UIGestur
                     scroll.contentInsetAdjustmentBehavior = .never
                 }
                 scroll.contentInset = UIEdgeInsets(top: headerView.intrinsicContentSize.height, left: 0, bottom: 0, right: 0)
+                scroll.contentOffset = .init(x: 0, y: -headerView.intrinsicContentSize.height) // >= iOS 14
                 scroll.delegate = self
                 scroll.tag = idx
             }
