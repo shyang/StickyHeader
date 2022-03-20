@@ -17,9 +17,9 @@ extension UIResponder {
 class MyScrollView: UIScrollView, UIGestureRecognizerDelegate {
 
     // UIScrollView's built-in pan gesture recognizer must have its scroll view as its delegate.
-    // headerView 区域禁用左划，由于是平级关系，此处转发给 VC
+    // headerView 区域禁用左划，由于是平级关系，此处转发给 UIScrollViewDelegate
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let delegate = parentViewController as? UIGestureRecognizerDelegate {
+        if let delegate = delegate as? UIGestureRecognizerDelegate {
            return delegate.gestureRecognizerShouldBegin?(gestureRecognizer) ?? true
         }
         return true

@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
 
     @objc func onTapped() {
-        self.navigationController?.pushViewController(ParentVC(), animated: true)
+        self.navigationController?.pushViewController(StickyViewController(), animated: true)
     }
 }
 

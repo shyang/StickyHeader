@@ -12,7 +12,6 @@
 		AD44DEDF23E8B0F6003F7BDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEDE23E8B0F6003F7BDA /* ViewController.swift */; };
 		AD44DEE423E8B0F9003F7BDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD44DEE323E8B0F9003F7BDA /* Assets.xcassets */; };
 		AD44DEE723E8B0F9003F7BDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD44DEE523E8B0F9003F7BDA /* LaunchScreen.storyboard */; };
-		AD44DEEF23E8B24E003F7BDA /* ParentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEEE23E8B24E003F7BDA /* ParentVC.swift */; };
 		AD44DEF123E8B30B003F7BDA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF023E8B30B003F7BDA /* HeaderView.swift */; };
 		AD44DEF323E8B327003F7BDA /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF223E8B327003F7BDA /* TabBar.swift */; };
 		AD44DEF723E8B4DB003F7BDA /* TableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44DEF623E8B4DB003F7BDA /* TableVC.swift */; };
@@ -20,6 +19,12 @@
 		AD7F2CCA23ED52F200AA444B /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7F2CC923ED52F200AA444B /* CollectionVC.swift */; };
 		ADA4B29123EE486100473F7C /* MyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA4B29023EE486100473F7C /* MyScrollView.swift */; };
 		ADA4B29523EE6FAE00473F7C /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA4B29423EE6FAE00473F7C /* MyNavigationController.swift */; };
+		ADCDB47927E6D10200595DD4 /* StickyHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCDB47827E6D10200595DD4 /* StickyHeaderComponent.swift */; };
+		ADF3A4FD27E6AA3A00595DD4 /* SimpleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3A4FC27E6AA3A00595DD4 /* SimpleContainer.swift */; };
+		ADF3A4FF27E6AA3A00595DD4 /* BaseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3A4FE27E6AA3A00595DD4 /* BaseComponent.swift */; };
+		ADF3A50127E6AA3A00595DD4 /* StickyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3A50027E6AA3A00595DD4 /* StickyViewController.swift */; };
+		ADF3A50327E6AA3A00595DD4 /* StickyPagesDataComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3A50227E6AA3A00595DD4 /* StickyPagesDataComponent.swift */; };
+		ADF3A50527E6AA3A00595DD4 /* StickyPagesUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3A50427E6AA3A00595DD4 /* StickyPagesUIComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +36,6 @@
 		AD44DEE323E8B0F9003F7BDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD44DEE623E8B0F9003F7BDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD44DEE823E8B0F9003F7BDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD44DEEE23E8B24E003F7BDA /* ParentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentVC.swift; sourceTree = "<group>"; };
 		AD44DEF023E8B30B003F7BDA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		AD44DEF223E8B327003F7BDA /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		AD44DEF623E8B4DB003F7BDA /* TableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableVC.swift; sourceTree = "<group>"; };
@@ -39,6 +43,12 @@
 		AD7F2CC923ED52F200AA444B /* CollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 		ADA4B29023EE486100473F7C /* MyScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrollView.swift; sourceTree = "<group>"; };
 		ADA4B29423EE6FAE00473F7C /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
+		ADCDB47827E6D10200595DD4 /* StickyHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderComponent.swift; sourceTree = "<group>"; };
+		ADF3A4FC27E6AA3A00595DD4 /* SimpleContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleContainer.swift; sourceTree = "<group>"; };
+		ADF3A4FE27E6AA3A00595DD4 /* BaseComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseComponent.swift; sourceTree = "<group>"; };
+		ADF3A50027E6AA3A00595DD4 /* StickyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickyViewController.swift; sourceTree = "<group>"; };
+		ADF3A50227E6AA3A00595DD4 /* StickyPagesDataComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyPagesDataComponent.swift; sourceTree = "<group>"; };
+		ADF3A50427E6AA3A00595DD4 /* StickyPagesUIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyPagesUIComponent.swift; sourceTree = "<group>"; };
 		FB189682DD042A03343D57B6 /* Pods-StickyHeader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StickyHeader.release.xcconfig"; path = "Target Support Files/Pods-StickyHeader/Pods-StickyHeader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,13 +99,18 @@
 				AD44DEE523E8B0F9003F7BDA /* LaunchScreen.storyboard */,
 				AD44DEE823E8B0F9003F7BDA /* Info.plist */,
 				AD44DEF823E8B5E5003F7BDA /* Import.swift */,
-				AD44DEEE23E8B24E003F7BDA /* ParentVC.swift */,
 				AD44DEF023E8B30B003F7BDA /* HeaderView.swift */,
 				AD44DEF223E8B327003F7BDA /* TabBar.swift */,
 				AD44DEF623E8B4DB003F7BDA /* TableVC.swift */,
 				AD7F2CC923ED52F200AA444B /* CollectionVC.swift */,
 				ADA4B29023EE486100473F7C /* MyScrollView.swift */,
 				ADA4B29423EE6FAE00473F7C /* MyNavigationController.swift */,
+				ADF3A4FC27E6AA3A00595DD4 /* SimpleContainer.swift */,
+				ADF3A4FE27E6AA3A00595DD4 /* BaseComponent.swift */,
+				ADF3A50027E6AA3A00595DD4 /* StickyViewController.swift */,
+				ADF3A50227E6AA3A00595DD4 /* StickyPagesDataComponent.swift */,
+				ADF3A50427E6AA3A00595DD4 /* StickyPagesUIComponent.swift */,
+				ADCDB47827E6D10200595DD4 /* StickyHeaderComponent.swift */,
 			);
 			path = StickyHeader;
 			sourceTree = "<group>";
@@ -207,12 +222,17 @@
 			files = (
 				AD44DEF923E8B5E5003F7BDA /* Import.swift in Sources */,
 				AD44DEDF23E8B0F6003F7BDA /* ViewController.swift in Sources */,
+				ADF3A50327E6AA3A00595DD4 /* StickyPagesDataComponent.swift in Sources */,
 				AD7F2CCA23ED52F200AA444B /* CollectionVC.swift in Sources */,
 				AD44DEDB23E8B0F6003F7BDA /* AppDelegate.swift in Sources */,
-				AD44DEEF23E8B24E003F7BDA /* ParentVC.swift in Sources */,
+				ADF3A4FF27E6AA3A00595DD4 /* BaseComponent.swift in Sources */,
+				ADF3A50527E6AA3A00595DD4 /* StickyPagesUIComponent.swift in Sources */,
 				ADA4B29123EE486100473F7C /* MyScrollView.swift in Sources */,
+				ADCDB47927E6D10200595DD4 /* StickyHeaderComponent.swift in Sources */,
 				AD44DEF123E8B30B003F7BDA /* HeaderView.swift in Sources */,
 				AD44DEF323E8B327003F7BDA /* TabBar.swift in Sources */,
+				ADF3A50127E6AA3A00595DD4 /* StickyViewController.swift in Sources */,
+				ADF3A4FD27E6AA3A00595DD4 /* SimpleContainer.swift in Sources */,
 				AD44DEF723E8B4DB003F7BDA /* TableVC.swift in Sources */,
 				ADA4B29523EE6FAE00473F7C /* MyNavigationController.swift in Sources */,
 			);
