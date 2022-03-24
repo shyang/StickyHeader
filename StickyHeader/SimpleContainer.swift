@@ -8,6 +8,18 @@
 
 import Foundation
 
+protocol InjectContext {
+    var context: SimpleContainer? { get set }
+}
+
+@propertyWrapper
+class Inject<T> : InjectContext {
+    var wrappedValue: T? {
+        return context?.resolveObject(T.self)
+    }
+    weak var context: SimpleContainer?
+}
+
 class Weak {
     weak var target: AnyObject?
     init(target: AnyObject?) {

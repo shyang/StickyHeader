@@ -34,8 +34,8 @@ class StickyPagesUIComponent : BaseComponent {
         return v
     }()
 
-    weak var dataService: StickyPagesDataService?
-    weak var overlay: StickyPagesOverlayDelegate?
+    @Inject var dataService: StickyPagesDataService?
+    @Inject var overlay: StickyPagesOverlayDelegate?
 
     let w = UIScreen.main.bounds.size.width
     let h = UIScreen.main.bounds.size.height
@@ -46,9 +46,6 @@ class StickyPagesUIComponent : BaseComponent {
     }
 
     override func componentDidLoad() {
-        dataService = context?.resolveObject(StickyPagesDataService.self)
-        overlay = context?.resolveObject(StickyPagesOverlayDelegate.self)
-
         guard let dataService = dataService else {
             return
         }

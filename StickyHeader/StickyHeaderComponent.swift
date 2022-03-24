@@ -11,7 +11,7 @@ import UIKit
 
 class StickyHeaderComponent : BaseComponent {
     let headerView = HeaderView()
-    weak var dataService: StickyPagesDataService?
+    @Inject var dataService: StickyPagesDataService?
 
     required init(context: SimpleContainer) {
         super.init(context: context)
@@ -19,7 +19,6 @@ class StickyHeaderComponent : BaseComponent {
     }
 
     override func componentDidLoad() {
-        dataService = context?.resolveObject(StickyPagesDataService.self)
         guard let dataService = dataService else {
             return
         }

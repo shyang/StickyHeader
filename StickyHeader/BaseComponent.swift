@@ -17,6 +17,12 @@ class BaseComponent : NSObject {
         super.init()
         self.context = context
         controller = context.resolveObject(UIViewController.self)
+
+        for child in Mirror(reflecting: self).children {
+            if var inject = child.value as? InjectContext {
+                inject.context = context
+            }
+        }
     }
 
     func componentDidLoad() {
